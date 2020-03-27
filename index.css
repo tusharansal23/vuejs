@@ -1,0 +1,129 @@
+html, body {
+    margin: 5px;
+    padding: 0;
+    background:#EEE;
+    
+}
+input{
+  margin-top:5%;
+  width: 100%;
+}
+#wrapper{
+  width:100%;
+  height:100%;
+  float: left;
+}
+#databinding{
+  width:100%;
+  height:100%;
+  float: left;
+}
+#db{
+  width:100%;
+  height:30%;
+}
+#db1{
+  width:50%;
+  height:33%;
+  float:left;
+}
+#db12{
+  width:50%;
+  height:33%;
+  float:left;
+}
+#db2{
+  width:50%;
+  height:34%;
+  float:left;
+}
+#db22{
+  width:50%;
+  height:34%;
+  float:left;
+}
+#db3{
+  width:50%;
+  height:33%;
+  float:left;
+}
+#db32{
+  width:50%;
+  height:33%;
+  float:left;
+}
+#box1 {
+	width:100%;
+  height:42%;
+}
+#box11{
+	width:49%;
+  height:100%;
+  float: left;
+}
+#box12{
+	width:49%;
+  height:100%;
+  border: 1px solid gray;
+  float: left;
+  
+}
+
+#box1s{
+	width:100%;
+  height:33%;
+  border: 1px solid gray;
+}
+#box2s{
+	width:100%;
+  height:33%;
+  border: 1px solid gray;
+}
+#box3s{
+	width:100%;
+  height:33%;
+  border: 1px solid gray;
+}
+#box111{
+	width:100%;
+  height:50%;
+}
+#box112{
+	width:100%;
+  height:50%;
+}
+#box113{
+	width:100%;
+  height:50%;
+}
+
+#box1111{
+	width:100%;
+  height:50%;
+}
+#box1121{
+	width:100%;
+  height:50%;
+}
+#box1131{
+	width:100%;
+  height:50%;
+}
+
+#chartdiv {
+  width: 100%;
+  height: 100%;
+  
+}
+.pie-chart{
+	background-color: y;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #fe0000;
+   /* background: conic-gradient(
+        #fefefe 0 30%,
+        #fe0000 0 40%,
+        #00fe00 0 30%
+    )*/
+}

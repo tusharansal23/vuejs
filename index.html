@@ -1,0 +1,112 @@
+<html>
+    <head>
+		<title>Hello Vue!</title>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="main"><h1 align="center">EMI CALCULATOR</h1></div>
+            <div id="databinding">
+                <div id="db">
+                    <div id="db1" align="center"><h4>Home Loan amount </h4></div>
+                    <div id="db12" align="center"><input type="text" v-model ="txt1"></div>
+                    <div id="db2" align="center"><h4>Interest Rate </h4></div>
+                    <div id="db22" align="center"><input type="text" v-model ="txt2"></div>
+                    <div id="db3" align="center"><h4>Loan Tenure </h4></div>
+                    <div id="db32" align="center"><input type="text" v-model ="txt3"></div>
+                </div>
+            <div id="box1">
+                <div id="box11">
+                    <div id="box1s">
+                        <div id="box111" align="center"><h4>Loan EMI </h4></div>
+                        <div id="box1111" align="center"><span>{{getEmi}}</span></div>
+                    </div>
+                    <div id="box2s">
+                        <div id="box112" align="center"><h4>Total Interest Payable </h4></div>
+                        <div id="box1121" align="center"><span>{{getInterest}}</span></div>
+                    </div>
+                    <div id="box3s">
+                        <div id="box113" align="center"><h4>Total Payment </h4></div>
+                        <div id="box1131" align="center"><span>{{getTotalPayment}}</span></div>
+                    </div>
+                </div>
+                <div id="box12" align="center">
+                <script src="//www.amcharts.com/lib/3/amcharts.js"></script>
+                <script src="//www.amcharts.com/lib/3/pie.js"></script>
+                <script src="//www.amcharts.com/lib/3/themes/light.js"></script> 
+                
+                <div id="chartdiv" ></div>
+               <!-- <div id="box121" class="pie-chart" :style="pieStyle"></div> -->
+                </div>
+            </div>
+            </div>
+        </div>
+<script>
+var vm = new Vue({ 
+    el: '#databinding',
+           data: {
+      txt1 :500000,
+      txt2 :10.5,
+      txt3 : 20
+   },
+   computed :{
+      getEmi : function(){
+          var p=parseFloat(this.txt1);
+          var r=parseFloat(this.txt2)/1200;
+          var n=parseFloat(this.txt3)*12;
+          var num=parseFloat(Math.pow((1+r),n));
+          var den=parseFloat(Math.pow((1+r),n)-1);
+          var res=parseFloat(p*r*(num/den));
+
+          var chart = AmCharts.makeChart("chartdiv", {
+  "type": "pie",
+  "theme": "light",
+  "dataProvider": [{
+    "litres": parseFloat((p/(res*n))*100),
+    "color": "#9acd32",
+    
+  }, {
+    "litres": parseFloat(((res*n)-p)*100/(res*n)),
+    "color": "#ff9933"
+  }, 
+],
+  "valueField": "litres",
+  "colorField": "color",
+  "balloon": {
+    "fixedPosition": true
+  }
+});
+
+
+
+
+
+
+         return Math.round(res);
+      },
+      getInterest : function(){
+           var p=parseFloat(this.txt1);
+          var r=parseFloat(this.txt2)/1200;
+          var n=parseFloat(this.txt3)*12;
+          var num=parseFloat(Math.pow((1+r),n));
+          var den=parseFloat(Math.pow((1+r),n)-1);
+          var res=parseFloat(p*r*(num/den));
+         return Math.round((res*n)-p);
+      },
+      getTotalPayment : function(){
+           var p=parseFloat(this.txt1);
+          var r=parseFloat(this.txt2)/1200;
+          var n=parseFloat(this.txt3)*12;
+          var num=parseFloat(Math.pow((1+r),n));
+          var den=parseFloat(Math.pow((1+r),n)-1);
+          var res=parseFloat(p*r*(num/den));
+         return Math.round(res*n);
+      }
+   }
+});
+
+</script>
+        
+    </body>
+</html>
